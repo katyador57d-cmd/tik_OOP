@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-class HumanPlayer extends Player {
+class HumanPlayer extends Player
+{
 
     
     public function __construct(
         string $symbol,
         private readonly Display $display
-    )
-    {
+    ) {
         parent::__construct($symbol);
     }
     public function makeMove(Board $board): array
@@ -32,6 +32,6 @@ class HumanPlayer extends Player {
             continue;
         }
         return [$row, $col];
-    }
+        }
     }
 }
