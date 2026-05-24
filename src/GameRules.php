@@ -1,7 +1,9 @@
 <?php
+
 declare(strict_types=1);
 
-class GameRules {
+class GameRules 
+{
 
     public function checkLine(array $line): ?string   
     {
@@ -10,6 +12,7 @@ class GameRules {
         }
         return null;
     }
+    
     public function checkWinner(Board $board): ?string
     {
        

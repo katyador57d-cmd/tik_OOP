@@ -1,19 +1,23 @@
 <?php
+
 declare(strict_types=1);
 
-class Board {
+class Board 
+{
     public const SIZE = 3;
     public const EMPTY_CELL = '.';
     public const SYMBOL_X = 'X';
     public const SYMBOL_O = 'O';
+
     private array $cells;
+
     public function __construct()
     {
-         $this->cells = [
-            [self::EMPTY_CELL, self::EMPTY_CELL, self::EMPTY_CELL],
-            [self::EMPTY_CELL, self::EMPTY_CELL, self::EMPTY_CELL],
-            [self::EMPTY_CELL, self::EMPTY_CELL, self::EMPTY_CELL],
-        ];
+         $this->cells = [];
+        
+         for ($i = 0; $i < self::SIZE; $i++) {
+                $this->cells[] = array_fill(0, self::SIZE, self::EMPTY_CELL);
+            }
     }
 
     public function makeMove(int $row, int $col, string $symbol): void 
@@ -36,16 +40,16 @@ class Board {
 
     public function getEmptyCells(): array  
     {
-        $empty = [];
+        $emptyCells = [];
         for ($row = 0; $row < self::SIZE; $row++) {
             for ($col =0; $col < self::SIZE; $col++ ) {
                 
                 if ($this->isCellEmpty($row, $col)) {
-                    $empty[] = [$row, $col];
+                    $emptyCells[] = [$row, $col];
                 }
             }
         } 
-        return $empty;
+        return $emptyCells;
     }
 
     public function isFull(): bool
@@ -73,7 +77,9 @@ class Board {
         for ($row = 0; $row < self::SIZE; $row++) {
             $result[] = $this->cells[$row] [$index];
         }
+
         return $result;
+
         }
 
 
@@ -88,6 +94,4 @@ class Board {
         }
         return [$d1, $d2];
     }
-
-
 }
