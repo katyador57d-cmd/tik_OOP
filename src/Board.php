@@ -82,7 +82,6 @@ class Board
 
         }
 
-
     public function getDiagonals(): array 
     {
         $d1 = [];
