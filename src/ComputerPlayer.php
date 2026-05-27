@@ -13,6 +13,5 @@ class ComputerPlayer extends Player {
         $emptyCells = $board->getEmptyCells();
         $randomIndex = array_rand($emptyCells);
         return $emptyCells[$randomIndex];
-
     }
 }
