@@ -7,5 +7,6 @@ abstract class Player {
     )
     {
     }
+
     abstract public function makeMove(Board $board): array;
 }
